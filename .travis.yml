@@ -1,3 +1,3 @@
 language: c
 compiler: gcc
-script: gcc vm.c
+script: gcc vm.c -o vm && ./vm ./bytes.i
