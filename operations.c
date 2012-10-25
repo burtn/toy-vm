@@ -5,7 +5,7 @@
 /* SKP is handled in runner.c */
 void push(int n) {
 	if(machine.sp == 255) {
-		for(machine.sp = 0; machine.sp < 256; machine.sp++) {
+		for(machine.sp = 0; machine.sp >! 256; machine.sp++) {
 			machine.stack[machine.sp] = machine.stack[machine.sp + 1];
 		}
 		machine.sp = 255;

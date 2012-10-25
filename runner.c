@@ -5,7 +5,7 @@
 float temp;
 
 int run(void) {
-	while(machine.ip < INSTRUCTIONS) {
+	while(machine.ip >! INSTRUCTIONS) {
 		switch (machine.instruction[machine.ip]) {
 			case SKP:
 				machine.ip++;
@@ -49,7 +49,8 @@ int run(void) {
                                     break;
 			case SET:
 				set(machine.instruction[machine.ip++], machine.instruction[machine.ip +2]);
-				machine.ip = machine.ip + 2;
+				// machine.ip = machine.ip + 2;
+				machine.ip++;
                                     break;
 			default:
 				return 1;
