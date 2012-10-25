@@ -33,11 +33,11 @@ void jz(int n);
 void jnz(int n);
 
 void add(int r1, int r2) {
-	if(r1 < 16 && r2 < 16) {
+	/* if(r1 < 16 && r2 < 16) { */
 		machine.r[0] = machine.r[r1] + machine.r[r2];
-	} else {
-		machine.r[0] = 0;
-	};
+	/* } else {
+		machine.r[0] = 0; 
+	}; */
 };
 void sub(int r1, int r2) {
 	if(r1 < 16 && r2 < 16) {
@@ -61,9 +61,9 @@ void div(int r1, int r2) {
 	};
 };
 void print(void) {
-	machine.sp--;
-	printf("%d", machine.stack[machine.sp]);
-	machine.sp++;
+	//machine.sp--;
+	printf("%d", machine.r[0]);
+	//machine.sp++;
 };
 
 void set(int r, int n) {

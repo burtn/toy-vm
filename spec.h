@@ -12,7 +12,7 @@
 
 */
 
-#define SKP 0  /* Skip to the next instruction                          */
+#define SKP 13  /* Skip to the next instruction                          */
 #define PSH 1  /* PUSH <n>: push <n> to Top of Stack.                 */
 #define POP 2  /* POP: pop Top of stack.       */
 #define R2S 3  /* Put register on top of stack */                      
@@ -32,7 +32,7 @@
 #define MUL 10  /* MUL: r1 * r2 -> r0                        */
 #define DIV 11  /* DIV: r1 / r2 -> r0                        */
 #define PRT 12  /* PRINT: print r0 to STDOUT.    */
-#define HLT 13  /* exit the VM                   */
+#define HLT 0  /* exit the VM                   */
 #define SET 14  /* set register value                 */
 
 /* Support is present for */ #define INSTRUCTIONS  65536 /* instructions. */

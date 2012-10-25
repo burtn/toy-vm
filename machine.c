@@ -2,8 +2,8 @@
 struct VM {
 		int stack[256];
 		unsigned char sp;
-		int r[15];
-		unsigned short ip;
+		int r[16];
+		unsigned int ip;
 		int instruction[65536];
 	};
 

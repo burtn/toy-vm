@@ -5,57 +5,58 @@
 float temp;
 
 int run(void) {
-	while(machine.ip >! INSTRUCTIONS) {
+	while(machine.ip <= INSTRUCTIONS) {
 		switch (machine.instruction[machine.ip]) {
 			case SKP:
 				machine.ip++;
-                                    break;
+                break;
 			case HLT:
 				return 0;
-                                    break;
+                break;
 			case PRT:
 				print();
-                                    break;
+				machine.ip++;
+                break;
 			case ADD:
-				add(machine.instruction[machine.ip++], machine.instruction[machine.ip +2]);
-				machine.ip = machine.ip + 2;
-                                    break;
+				add(machine.instruction[machine.ip + 1], machine.instruction[machine.ip +2]);
+				machine.ip = machine.ip + 3;
+                break;
 			case SUB:
 				sub(machine.instruction[machine.ip++], machine.instruction[machine.ip +2]);
-				machine.ip = machine.ip + 2;
-                                    break;
+				machine.ip = machine.ip + 3;
+                break;
 			case MUL:
 				mul(machine.instruction[machine.ip++], machine.instruction[machine.ip +2]);
-				machine.ip = machine.ip + 2;
-                                    break;
+				machine.ip = machine.ip + 3;
+                break;
 			case DIV:
 				div(machine.instruction[machine.ip++], machine.instruction[machine.ip +2]);
-				machine.ip = machine.ip + 2;
-                                    break;
+				machine.ip = machine.ip + 3;
+                break;
 			case POP:
 				temp = pop();
-                                     break;
+				machine.ip++;
+                break;
 			case PSH:
 				push(machine.instruction[machine.ip++]);
 				machine.ip++;
-                                    break;
+                break;
 			case R2S:
 				register_to_stack(machine.instruction[machine.ip++]);
 				machine.ip++;
-                                    break;
+                break;
 			case S2R:
 				stack_to_register(machine.instruction[machine.ip++]);
 				machine.ip++;
-                                    break;
+                break;
 			case SET:
-				set(machine.instruction[machine.ip++], machine.instruction[machine.ip +2]);
-				// machine.ip = machine.ip + 2;
-				machine.ip++;
-                                    break;
+				set(machine.instruction[machine.ip + 1], machine.instruction[machine.ip +2]);
+				machine.ip = machine.ip + 3;
+                break;
 			default:
 				return 1;
 		}
-		machine.ip++;
+		// machine.ip++;
 	};
 	return 0;
 };
