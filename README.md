@@ -3,6 +3,21 @@ toy-vm
 
 The Beginnings of a Toy VM
 <hr>
+### Status
+![Build Status](https://travis-ci.org/jake5991/toy-vm.png)
+### Compiling
+You'll need a [Compiler that supports #pragme once](http://en.wikipedia.org/wiki/Pragma_once#Portability) otherwise you'll have to add include guards yourself.
+
+If your using gcc:
+```sh
+gcc ./vm.c -o vm
+./vm ./bytes.i
+```
+Or if you plan on using gdb:
+```sh
+gcc -g ./vm.c -o vm
+./vm ./bytes.i
+```
 ### About
 This is a toy VM, the machine is effectively implemented as a struct:
 ```C
